@@ -8,16 +8,16 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("veg");
   useEffect(() => {
+    const getRecipes = async () => {
+      const res = await fetch(
+        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      );
+      const data = await res.json();
+      setRecipes(data.hits);
+    };
     getRecipes();
   }, [query]);
-  const getRecipes = async () => {
-    const res = await fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
-    );
-    const data = await res.json();
-    setRecipes(data.hits);
-    console.log(data.hits);
-  };
+
   const updateSearch = (e) => {
     setSearch(e.target.value);
   };
