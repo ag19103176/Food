@@ -6,7 +6,9 @@ function Recipe({ title, calories, image, ingredients }) {
       <h1 className="title">{title}</h1>
       <ol>
         {ingredients.map((ingredient) => (
-          <li>{ingredient.text}</li>
+          <div>
+            <li>{ingredient.text}</li>
+          </div>
         ))}
       </ol>
       <p className="cal">Calories:{calories}</p>

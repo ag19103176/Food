@@ -14,6 +14,7 @@ const App = () => {
       );
       const data = await res.json();
       setRecipes(data.hits);
+      console.log(data);
     };
     getRecipes();
   }, [query]);
